@@ -9,6 +9,26 @@ namespace NombreCache
 {
     class Program
     {
+        static int essai;
+
+        static void saisie()
+        {
+            bool correct = false; //toujours mettre correct = false avant le while try and catch
+            while (!correct)
+            {
+                try
+                {
+                    Console.Write("Entrez un essai = ");
+                    essai = int.Parse(Console.ReadLine());
+                    correct = true;
+                }
+                catch
+                {
+                    Console.WriteLine("Erreur de saisie : Saisissez un nombre entier");
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
             //Déclaration
@@ -32,20 +52,7 @@ namespace NombreCache
             Console.Clear();
 
             //Saisie du premier essai
-            correct = false; //toujours mettre correct = false avant le while try and catch
-            while (!correct)
-            {
-                try
-                {
-                    Console.Write("Entrez un essai = ");
-                    essai = int.Parse(Console.ReadLine());
-                    correct = true;
-                }
-                catch
-                {
-                    Console.WriteLine("Erreur de saisie : Saisissez un nombre entier");
-                }
-            }
+            saisie();
 
             //Créer la boucle
             while (essai != valeur)
@@ -59,23 +66,8 @@ namespace NombreCache
                 {
                     Console.WriteLine(" --> Trop petit ! ");
                 }
-
                 //Saisie d'un nouvel essai
-                correct = false; //toujours mettre correct = false avant le while try and catch
-                while (!correct)
-                {
-                    try
-                    {
-                        Console.Write("Entrez un essai = ");
-                        essai = int.Parse(Console.ReadLine());
-                        correct = true;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Erreur de saisie : Saisissez un nombre entier");
-                    }
-                }
-
+                saisie()
                 //compteur d'essais
                 nbre++;
             }
