@@ -51,6 +51,7 @@ namespace NombreCache
             }
             Console.Clear();
 
+
             //Saisie du premier essai
             saisie();
 
